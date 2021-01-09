@@ -1,22 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
-<h1 style = "text-align: center;">MY PORTFOLIO</h1>
+<body style="background-color:rgb(140, 162, 170);">
+<u><h1 style = "text-align: center;">MY PORTFOLIO</h1></u>
 <div class="row">
 {% for project in myProjects %}
     <div class="col-md-4">
         <div class="card mb-2">
-            <h2 class="card-title">{{ project.title }}</h2>
-            <p style= "font-size: 30px", class="card-text">{{ project.description }}</p>
-            <div class="card-body">                
-                <a href="{% url 'project_detail' project.pk %}"
-                   class="btn btn-primary">
-                    Read More
-                </a>
-            </div>
+            <p class = "small"></p>
+                <u><h2 class="card-title">{{ project.title }}</h2></u>            
+                <p style= "font-size: 20px">{{ project.description }}</p>            
+                <div class="card-body">                
+                    <a href="{% url 'project_detail' project.pk %}"
+                    class="btn btn-primary">
+                        Read More
+                    </a>
+                </div>
+            </p>
             <img class="card-img-top" src="{% static project.image %}">
         </div>
     </div>
     {% endfor %}
 </div>
+</body>
 {% endblock %}
